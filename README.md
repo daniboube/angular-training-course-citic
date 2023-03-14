@@ -1,6 +1,6 @@
-# AngularTrainingCourseCitic
+# Angular Training Course - CITIC
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+Repository for the training course in web development using Angular, taught at CITIC in March-April 2023.
 
 ## Development server
 
