@@ -1,0 +1,15 @@
+<main>
+
+    <h3>List of activities</h3>
+    <div class="utils-div">
+        <input class="search_bar" type="search"  placeholder="Search" (change)="onSearchChange($event)"/>
+        <button class="sort_button" (click)="changeActivitiesOrder()">Sort</button>
+    </div>
+    
+    <div class="list-div">
+        <span *ngFor="let activity of activities">
+            <app-activity-item [activity]="activity"></app-activity-item>
+        </span>
+    </div>
+
+</main>

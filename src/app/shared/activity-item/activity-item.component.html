@@ -1,0 +1,11 @@
+<div>
+    <span style="font-weight: bolder;"> {{ activity.title }} </span>
+    <span> 📅 {{ activity.date | date : "dd-MMM-yy" }} </span>
+    <span> 
+        <span *ngIf="activity.price < 100 else expensiveIcon"> 🔥</span>
+        <ng-template #expensiveIcon> </ng-template>
+        {{ activity.price | currency : activity.currency }} 
+    </span>
+    <span [class]="activity.ageCategory"> {{ activity.ageCategory | titlecase}} </span>
+</div>
+
