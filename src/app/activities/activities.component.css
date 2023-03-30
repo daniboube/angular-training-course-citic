@@ -29,3 +29,11 @@ h3 {
     padding: 0px; 
     gap: 15px;
 }
+
+.list-div {
+    padding: 40px 0px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    grid-auto-rows: repeat(100px, auto);
+}

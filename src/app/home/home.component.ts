@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ACTIVITIES } from '../data/activities.data';
+import { ActivitiesService } from '../core/activities.service';
 import { Activity } from '../data/activity.type';
 
 @Component({
@@ -14,17 +14,12 @@ export class HomeComponent {
 
   activities: Activity[] = []
 
-  constructor() {
-    this.setActivities()
+  constructor(private activitiesService: ActivitiesService) {
+    this.setActivities();
   }
 
   setActivities() {
-    this.activities = ACTIVITIES.filter(
-      activity => (
-        (activity.state === 'published') && 
-        (this.searchTerm === '' || activity.title.toLowerCase().includes(this.searchTerm.toLowerCase()))
-      )
-    ).sort((a, b) => (a.price - b.price) * this.order);
+    this.activities = this.activitiesService.getPublished(this.searchTerm, this.order);
   }
 
   changeActivitiesOrder() {

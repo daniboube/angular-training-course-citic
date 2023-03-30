@@ -3,4 +3,10 @@
     <div class="utils-div">
         <button class="new-button" routerLink="new">New activity</button>
     </div>
+
+    <div class="list-div">
+        <div *ngFor="let activity of activities">
+            <app-activity-item [activity]="activity"></app-activity-item>
+        </div>
+    </div>
 </span>

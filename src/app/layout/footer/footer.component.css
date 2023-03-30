@@ -1,6 +1,7 @@
 :host {
     flex-grow: 1;
     max-height: 160px;
+    min-height: 160px;
 }
 
 footer {
