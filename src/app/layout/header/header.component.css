@@ -16,8 +16,8 @@ header {
 }
 
 .header-title {
+    flex-grow: 1;
     color: #ffffff;
     font-weight: 900;
     font-size: 20pt;
-    flex-grow: 1;
 }

@@ -2,7 +2,7 @@
 
     <h3>List of activities</h3>
     <div class="utils-div">
-        <input class="search_bar" type="search"  placeholder="Search" (change)="onSearchChange($event)"/>
+        <input class="search_bar" type="search"  placeholder="Search" (keyup)="onSearchChange($event)"/>
         <button class="sort_button" (click)="changeActivitiesOrder()">Sort</button>
     </div>
     

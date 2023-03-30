@@ -1,0 +1,13 @@
+span {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 40px;
+    background-color: white;
+}
+
+h3 {
+    color: black;
+    margin: 0px;
+}

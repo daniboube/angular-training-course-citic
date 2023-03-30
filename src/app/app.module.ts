@@ -7,11 +7,13 @@ import { HeaderComponent } from './layout/header/header.component';
 import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

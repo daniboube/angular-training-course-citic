@@ -26,3 +26,19 @@ export type Activity = {
   title: string;
   userId: Id;
 };
+
+export const ACTIVITY_EMPTY: Activity = {
+  ageCategory: 'adult',
+  currency: 'EUR',
+  date: '',
+  description: '',
+  id: '',
+  location: '',
+  maxParticipants: 0,
+  minParticipants: 0,
+  price: 0,
+  slug: '',
+  state: 'draft',
+  title: '',
+  userId: '',
+};
