@@ -6,24 +6,29 @@
             <div>
                 <label for="fullName">Full name</label>
                 <input id="fullName" name="fullName" formControlName="fullName">
+                <small *ngIf="showError('fullName')" style="color: red;"> {{ getErrorMessage('fullName') }} </small>
             </div>
 
             <div>
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" formControlName="email">
+                <small *ngIf="showError('email')" style="color: red;"> {{ getErrorMessage('email') }} </small>
             </div>
 
             <div>
                 <label for="password">Password</label>
                 <input id="password" name="password" type="password" formControlName="password">
+                <small *ngIf="showError('password')" style="color: red;"> {{ getErrorMessage('password') }} </small>
             </div>
 
             <div>
                 <label for="confirmPassword">Confirm password</label>
                 <input id="confirmPassword" name="confirmPassword" type="password" formControlName="confirmPassword">
+                <small *ngIf="showError('confirmPassword')" style="color: red;"> {{ getErrorMessage('confirmPassword') }} </small>
             </div>
             
         </fieldset>
-        <button (click)="onRegisterClick()">Register</button>
+        <button [disabled]="form.invalid" (click)="onRegisterClick()">Register</button>
     </form>
+
 </span>
