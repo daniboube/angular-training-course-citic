@@ -4,10 +4,6 @@
 
 Repository for the training course in web development using Angular, taught at CITIC in March-April 2023. The purpose of this project is to learn Angular by trying to create some kind of dummy booking application for activities, called ActiviTIC.
 
-## Features
-
-Coming soon...
-
 ## Installation
 
 Cloning, installing and running the project is as simple as executing the following commands:
