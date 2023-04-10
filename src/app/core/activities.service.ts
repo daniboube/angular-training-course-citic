@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ACTIVITIES } from '../data/activities.data';
-import { Activity } from '../data/activity.type';
+import { ACTIVITY_EMPTY, Activity } from '../data/activity.type';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,12 @@ export class ActivitiesService {
       ).sort((a, b) => (a.price - b.price) * sortOrder);
   }
 
-  addNew(activity: Activity): void{
+  getBySlug(slug:string): Activity {
+    const foundActivity = ACTIVITIES.find(a => a.slug === slug);
+    return foundActivity || ACTIVITY_EMPTY;
+  }
+
+  addNew(activity: Activity): void {
     ACTIVITIES.push(activity);
   }
 }

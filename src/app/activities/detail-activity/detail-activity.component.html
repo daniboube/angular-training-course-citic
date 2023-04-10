@@ -1,4 +1,11 @@
 <span>
-    <h3>Activity details</h3>
+    <h3>{{ activity.title }}</h3>
+    <div style="display: flex; flex-direction: row; gap: 5px; ">
+        <p>Date: </p><p>{{ activity.date | date: "yyyy-MMM-dd" }}</p>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 5px; ">
+        <p>Location: </p><p>{{ activity.location }}</p>
+    </div>
+    <pre> {{ activity.slug }} </pre>
 </span>
 

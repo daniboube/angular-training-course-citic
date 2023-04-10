@@ -30,7 +30,7 @@ export type Activity = {
 export const ACTIVITY_EMPTY: Activity = {
   ageCategory: 'adult',
   currency: 'EUR',
-  date: '',
+  date: '01-01-1970',
   description: '',
   id: '',
   location: '',
@@ -39,6 +39,6 @@ export const ACTIVITY_EMPTY: Activity = {
   price: 0,
   slug: '',
   state: 'draft',
-  title: '',
+  title: 'No title',
   userId: '',
 };
