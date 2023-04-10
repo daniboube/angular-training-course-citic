@@ -8,6 +8,7 @@ import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { AboutComponent } from './about/about.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
