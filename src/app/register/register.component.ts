@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsService } from '../core/forms.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent {
   form: FormGroup;
   
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, private fromsService: FormsService) {
     this.form = formBuilder.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -33,15 +34,11 @@ export class RegisterComponent {
   }
 
   showError(controlName: string): boolean {
-    const control = this.form.controls[controlName];
-    if (!control) return false;
-    return control.invalid && (control.touched || control.dirty);
+    return this.fromsService.showError(this.form, controlName);
   }
 
   getErrorMessage(controlName: string): string {
-    const control = this.form.controls[controlName];
-    if (!control) return "";
-    return JSON.stringify(control.errors);
+    return this.fromsService.getErrorMessage(this.form, controlName);
   }
 
 }

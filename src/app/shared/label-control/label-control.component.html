@@ -1,0 +1,4 @@
+<div>
+    <label [for]="controlName"> {{ caption }} <span *ngIf="isRequired" style="font-weight: bold;"> * </span> </label>
+    <small *ngIf="showError" style="color: red;"> {{ errorMessage }} </small>
+</div>
