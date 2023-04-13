@@ -2,48 +2,42 @@ import { Injectable } from '@angular/core';
 import { ACTIVITIES } from '../data/activities.data';
 import { ACTIVITY_EMPTY, Activity } from '../data/activity.type';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivitiesService {
+  private activitiesUrl: string = 'http://localhost:3000/activities';
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Activity[] {
-    return ACTIVITIES;
-  }
-
   getAll$(): Observable<Activity[]> {
-    return this.httpClient.get<Activity[]>('http://localhost:3000/activities');
+    return this.httpClient.get<Activity[]>(this.activitiesUrl);
   }
 
-  getPublished(byTitle: string, sortOrder: number): Activity[] {
-    return ACTIVITIES
-      .filter(a => a.state === 'published')
-      .filter(
-        activity => activity.title.toLowerCase().includes(byTitle.toLowerCase())
-      ).sort((a, b) => (a.price - b.price) * sortOrder);
-  }
-
-  getBySlug(slug:string): Activity {
-    const foundActivity = ACTIVITIES.find(a => a.slug === slug);
-    return foundActivity || ACTIVITY_EMPTY;
+  getPublished$(byTitle: string, sortOrder: number): Observable<Activity[]> {
+    // TODO: Add the query parameters to the URL if they are not empty
+    return this.httpClient.get<Activity[]>(this.activitiesUrl)
   }
 
   getBySlug$(slug:string): Observable<Activity> {
-    const url = 'http://localhost:3000/activities/?slug=' + slug;
+    const url = this.activitiesUrl + '?slug=' + slug;
     return this.httpClient.get<Activity[]>(url).pipe(
-      // tap is a debugging operator
+      catchError((error) => {
+        console.error('Error catched: ', error);
+        return of([]); 
+      }),
+      // tap is a 'debugging' operator
       // map is a transformation operator
       tap((arrayResponse) => console.log(arrayResponse)), 
-      map((arrayResponse) => arrayResponse.length>0 ? arrayResponse[0]: ACTIVITY_EMPTY), 
+      map((arrayResponse) => arrayResponse[0] || ACTIVITY_EMPTY), 
       tap((itemExtracted) => console.log(itemExtracted))
     );
   }
 
-  addNew(activity: Activity): void {
-    ACTIVITIES.push(activity);
+  addNew$(activity: Activity): Observable<Activity> {
+    // TODO: Add the new activity to the server
+    return of(ACTIVITY_EMPTY)
   }
 }

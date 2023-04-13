@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivitiesService } from '../core/activities.service';
 import { Activity } from '../data/activity.type';
+import { ACTIVITY_EMPTY } from 'db/activity.type';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,10 @@ export class HomeComponent {
   }
 
   setActivities() {
-    this.activities = this.activitiesService.getPublished(this.searchTerm, this.order);
+    this.activitiesService.getPublished$(this.searchTerm, this.order).subscribe({
+      next: (body) => (this.activities = body),
+      error: (err) => (this.activities = [ACTIVITY_EMPTY])
+    })
   }
 
   changeActivitiesOrder() {

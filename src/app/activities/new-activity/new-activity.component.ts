@@ -12,7 +12,7 @@ export class NewActivityComponent {
   constructor(private activitiesService: ActivitiesService) { }
 
   onNewClick() {
-    this.activitiesService.addNew(ACTIVITY_EMPTY);
+    
   }
 
 }
