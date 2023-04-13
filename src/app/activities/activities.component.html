@@ -1,11 +1,11 @@
 <span>
-    <h3>Activities administration</h3>
+    <h3>{{ title }}</h3>
     <div class="utils-div">
         <button class="new-button" routerLink="new">New activity</button>
     </div>
 
     <div class="list-div">
-        <div *ngFor="let activity of activities">
+        <div *ngFor="let activity of (activities$ | async)">
             <app-activity-item [activity]="activity"></app-activity-item>
         </div>
     </div>

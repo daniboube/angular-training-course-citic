@@ -1,4 +1,4 @@
-<span>
+<span *ngIf="activity$ | async as activity">
     <h3>{{ activity.title }}</h3>
     <div style="display: flex; flex-direction: row; gap: 5px; ">
         <p>Date: </p><p>{{ activity.date | date: "yyyy-MMM-dd" }}</p>
@@ -8,4 +8,3 @@
     </div>
     <pre> {{ activity.slug }} </pre>
 </span>
-
