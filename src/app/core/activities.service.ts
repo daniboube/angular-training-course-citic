@@ -17,8 +17,15 @@ export class ActivitiesService {
   }
 
   getPublished$(byTitle: string, sortOrder: number): Observable<Activity[]> {
-    // TODO: Add the query parameters to the URL if they are not empty
-    return this.httpClient.get<Activity[]>(this.activitiesUrl)
+    return this.httpClient.get<Activity[]>(this.activitiesUrl).pipe(
+      catchError((error) => {
+        console.error('Error catched: ', error);
+        return of([]);
+      }),
+      map((arrayResponse) => arrayResponse.filter(a => a.state === 'published')),
+      map((arrayResponse) => arrayResponse.filter(a => a.title.toLowerCase().includes(byTitle.toLowerCase()))),
+      map((arrayResponse) => arrayResponse.sort((a, b) => (a.price - b.price) * sortOrder))
+    )
   }
 
   getBySlug$(slug:string): Observable<Activity> {
