@@ -6,5 +6,5 @@
     <div style="display: flex; flex-direction: row; gap: 5px; ">
         <p>Location: </p><p>{{ activity.location }}</p>
     </div>
-    <pre> {{ activity.slug }} </pre>
+    <pre *ngIf="error"> {{ error | json}} </pre>
 </span>
