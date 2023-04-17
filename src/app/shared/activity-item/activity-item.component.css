@@ -5,6 +5,7 @@ div {
     display: flex;
     flex-direction: column;
     height: auto;
+    min-height: 200px;
     width: auto;
     gap: 5px;
     padding: 10px 20px;

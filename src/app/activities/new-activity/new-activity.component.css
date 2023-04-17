@@ -5,9 +5,20 @@ span {
     gap: 15px;
     padding: 20px 40px;
     background-color: white;
+    color: black;
 }
 
 h3 {
     color: black;
     margin: 0px;
+}
+
+label {
+    color: black;
+    margin: 0px;
+}
+
+input, textarea, select {
+    background-color: white;
+    color: black;
 }

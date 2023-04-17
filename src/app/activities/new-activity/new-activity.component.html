@@ -1,3 +1,111 @@
 <span>
     <h3>New activity</h3>
+    <form [formGroup]="form">
+        <fieldset>
+
+            <app-label-control 
+                caption="Title" 
+                controlName="title"
+                [isRequired]="true"
+                [showError]="showError('title')" 
+                [errorMessage]="getErrorMessage('title')">
+            </app-label-control>
+            <input id="title" name="title" type="text" formControlName="title">
+
+            <app-label-control 
+                caption="Description" 
+                controlName="description"
+                [isRequired]="false"
+                [showError]="showError('description')" 
+                [errorMessage]="getErrorMessage('description')">
+            </app-label-control>
+            <textarea id="description" name="description" type="text" formControlName="description"></textarea>
+
+            <app-label-control 
+                caption="Price"
+                controlName="price"
+                [isRequired]="true"
+                [showError]="showError('price')"
+                [errorMessage]="getErrorMessage('price')">
+            </app-label-control>
+            <input id="price" name="price" type="number" min="0" formControlName="price">
+            
+            <app-label-control
+                caption="Currency"
+                controlName="currency"
+                [isRequired]="true"
+                [showError]="showError('currency')"
+                [errorMessage]="getErrorMessage('currency')">
+            </app-label-control>
+            <select id="currency" name="currency" formControlName="currency">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+            </select>
+
+            <app-label-control
+                caption="Date"
+                controlName="date"
+                [isRequired]="true"
+                [showError]="showError('date')"
+                [errorMessage]="getErrorMessage('date')">
+            </app-label-control>
+            <input id="date" name="date" type="date" formControlName="date">
+
+            <app-label-control
+                caption="Location"
+                controlName="location"
+                [isRequired]="true"
+                [showError]="showError('location')"
+                [errorMessage]="getErrorMessage('location')">
+            </app-label-control>
+            <input id="location" name="location" type="text" formControlName="location">
+
+            <app-label-control
+                caption="Age"
+                controlName="ageCategory"
+                [isRequired]="true"
+                [showError]="showError('ageCategory')"
+                [errorMessage]="getErrorMessage('ageCategory')">
+            </app-label-control>
+            <select id="ageCategory" name="ageCategory" formControlName="ageCategory">
+                <option value="family">Family</option>
+                <option value="child">Child</option>
+                <option value="adult">Adult</option>
+            </select>
+
+            <app-label-control
+                caption="Min Participants"
+                controlName="minParticipants"
+                [isRequired]="true"
+                [showError]="showError('minParticipants')"
+                [errorMessage]="getErrorMessage('minParticipants')">
+            </app-label-control>
+            <input id="minParticipants" name="minParticipants" type="number" min="0" formControlName="minParticipants">
+
+            <app-label-control
+                caption="Max Participants"
+                controlName="maxParticipants"
+                [isRequired]="true"
+                [showError]="showError('maxParticipants')"
+                [errorMessage]="getErrorMessage('maxParticipants')">
+            </app-label-control>
+            <input id="maxParticipants" name="maxParticipants" type="number" min="0" formControlName="maxParticipants">
+
+            <app-label-control
+                caption="State"
+                controlName="state"
+                [isRequired]="true"
+                [showError]="showError('state')"
+                [errorMessage]="getErrorMessage('state')">
+            </app-label-control>
+            <select id="state" name="state" formControlName="state">
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+                <option value="confirmed">Confirmed</option>
+            </select>
+
+
+        </fieldset>
+        <button [disabled]="form.invalid" (click)="onNewClick()">Save</button>
+    </form>
 </span>

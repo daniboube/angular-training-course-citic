@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NewActivityRoutingModule } from './new-activity-routing.module';
 import { NewActivityComponent } from './new-activity.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { NewActivityComponent } from './new-activity.component';
   ],
   imports: [
     CommonModule,
-    NewActivityRoutingModule
+    NewActivityRoutingModule,
+    SharedModule
   ]
 })
 export class NewActivityModule { }
