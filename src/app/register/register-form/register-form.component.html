@@ -1,0 +1,46 @@
+<span>
+    <h3>Register</h3>
+    <form [formGroup]="form">
+        <fieldset>
+
+            <app-label-control 
+                caption="Full Name" 
+                controlName="fullName"
+                [isRequired]="true"
+                [showError]="showError('fullName')" 
+                [errorMessage]="getErrorMessage('fullName')">
+            </app-label-control>
+            <input id="fullName" name="fullName" type="text" formControlName="fullName">
+
+            <app-label-control 
+                caption="Email" 
+                controlName="email"
+                [isRequired]="true"
+                [showError]="showError('email')" 
+                [errorMessage]="getErrorMessage('email')">
+            </app-label-control>
+            <input id="email" name="email" type="email" formControlName="email">
+
+            <app-label-control 
+                caption="Password" 
+                controlName="password"
+                [isRequired]="true"
+                [showError]="showError('password')" 
+                [errorMessage]="getErrorMessage('password')">
+            </app-label-control>
+            <input id="password" name="password" type="password" formControlName="password">
+
+            <app-label-control 
+                caption="Confirm Password" 
+                controlName="confirmPassword"
+                [isRequired]="true"
+                [showError]="showError('confirmPassword')" 
+                [errorMessage]="getErrorMessage('confirmPassword')">
+            </app-label-control>
+            <input id="confirmPassword" name="confirmPassword" type="password" formControlName="confirmPassword">
+            
+        </fieldset>
+        <button [disabled]="form.invalid" (click)="onRegisterClick()">Register</button>
+    </form>
+
+</span>

@@ -91,5 +91,13 @@
       "userId": 5
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "bob@hotmail.es",
+      "password": "$2a$10$lGSvyPj7hUf2R49p6Vwy.Oq1o4TFGwXVveeocZ/WP0qJk.sUydUnu",
+      "fullName": "Bob",
+      "confirmPassword": "1234",
+      "id": 1
+    }
+  ]
 }

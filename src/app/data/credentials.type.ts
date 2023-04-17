@@ -7,3 +7,9 @@ export type AccessToken = {
     accessToken: string;
     user: any;
 };
+
+export type User = {
+    fullName: string;
+    email: string;
+    password: string;
+}
