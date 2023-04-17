@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { NewActivityRoutingModule } from './new-activity-routing.module';
 import { NewActivityComponent } from './new-activity.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NewActivityFormComponent } from './new-activity-form/new-activity-form.component';
 
 
 @NgModule({
   declarations: [
-    NewActivityComponent
+    NewActivityComponent,
+    NewActivityFormComponent
   ],
   imports: [
     CommonModule,

@@ -43,8 +43,7 @@ export class ActivitiesService {
     );
   }
 
-  addNew$(activity: Activity): Observable<Activity> {
-    // TODO: Add the new activity to the server
-    return of(ACTIVITY_EMPTY)
+  addNew$(activity: Partial<Activity>): Observable<Activity> {
+    return this.httpClient.post<Activity>(this.activitiesUrl, activity)
   }
 }
