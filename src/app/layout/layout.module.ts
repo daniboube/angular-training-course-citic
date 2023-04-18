@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CopyRightComponent } from './copy-right/copy-right.component';
 import { RouterModule } from '@angular/router';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     HeaderComponent,
     CopyRightComponent,
+    ErrorComponent,
   ],
   imports: [
     CommonModule,
