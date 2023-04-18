@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Activity } from 'db/activity.type';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { ActivitiesService } from 'src/app/core/activities.service';
+import { AgeCategoriesService } from 'src/app/core/age-categories.service';
+import { AgeCategory } from 'src/app/data/activity.type';
 
 @Component({
   selector: 'app-new-activity',
@@ -11,25 +13,12 @@ import { ActivitiesService } from 'src/app/core/activities.service';
 })
 export class NewActivityComponent {
   title = 'New Activity';
-  ageCategories = [
-    {
-      caption: "Adult",
-      id: "adult",
-      userId: 1,
-    },
-    {
-      caption: "Child",
-      id: "child",
-      userId: 1,
-    },
-    {
-      caption: "Family",
-      id: "family",
-      userId: 1,
-    },
-  ]
+  ageCategories$: Observable<AgeCategory[]> = this.ageCategoriesService.getAll$();
 
-  constructor(private router: Router, private activitiesService: ActivitiesService) { }
+  constructor(
+    private router: Router,
+    private activitiesService: ActivitiesService,
+    private ageCategoriesService: AgeCategoriesService) { }
 
   onSave(activity: Partial<Activity>) {
     console.log('Save clicked');
@@ -41,7 +30,5 @@ export class NewActivityComponent {
       },
       error: (error) => console.log('Error catched: ', error),
     });
-    
   }
-
 }

@@ -1,1 +1,6 @@
-<app-new-activity-form [title]="title" [ageCategories]="ageCategories" (save)="onSave($event)"></app-new-activity-form>
+<app-new-activity-form 
+    *ngIf="ageCategories$ | async as ageCategories"
+    [title]="title" 
+    [ageCategories]="ageCategories" 
+    (save)="onSave($event)">
+</app-new-activity-form>
