@@ -31,10 +31,6 @@ export class ActivitiesService {
   getBySlug$(slug:string): Observable<Activity> {
     const url = this.activitiesUrl + '?slug=' + slug;
     return this.httpClient.get<Activity[]>(url).pipe(
-      // catchError((error) => {
-      //   console.error('Error catched: ', error);
-      //   return of([]); 
-      // }),
       // tap is a 'debugging' operator
       // map is a transformation operator
       tap((arrayResponse) => console.log(arrayResponse)), 

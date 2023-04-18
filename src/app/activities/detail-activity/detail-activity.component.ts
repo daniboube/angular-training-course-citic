@@ -20,8 +20,7 @@ export class DetailActivityComponent {
     private utilService: UtilService
   ) {
     this.error = '';
-    const slug: string = utilService.getParam(activatedRoute, 'slug');
-    // this.activity$ = this.activitiesService.getBySlug$(slug);
+    const slug: string = this.utilService.getParam(activatedRoute, 'slug');
     this.activity$ = this.activitiesService.getBySlug$(slug).pipe(
       catchError((error) => {
         console.error('Error catched: ', error);

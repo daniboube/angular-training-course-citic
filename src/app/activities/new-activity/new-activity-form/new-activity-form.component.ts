@@ -53,6 +53,7 @@ export class NewActivityFormComponent {
 
     if (this.form.valid) {
       const activity: Partial<Activity> = this.form.value as Partial<Activity>;
+      activity.slug = this.form.value.title.toLowerCase().replace(/ /g, '-');
       this.save.emit(activity)
     }
   }
